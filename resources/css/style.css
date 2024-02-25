@@ -1,7 +1,12 @@
 body{
     position: relative;
     margin-top: 80px;
-    min-height: 150vh;   
+    
+
+}
+
+main{
+min-height: 150vh;
 }
 .navbar{
     background-color: white !important;
