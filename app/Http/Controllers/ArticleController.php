@@ -10,7 +10,7 @@ class ArticleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('welcome');
+        $this->middleware('auth')->except('welcome','index');
     }
     /**
      * Display a listing of the resource.
@@ -40,7 +40,7 @@ class ArticleController extends Controller
             'description'=>$request->description,
             'price'=>$request->price,
         ]);
-        return redirect(route('welcome'))->with('message','Articolo inserito correttamente');
+        return redirect()->route('welcome')->with('message','Articolo inserito correttamente');
         
     }
 
@@ -49,7 +49,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view ('article.show', compact('article'));
     }
 
     /**
@@ -57,15 +57,21 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+       return view('article.edit', compact('article'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    public function update(ArticleRequest $request, Article $article)
     {
-        //
+        $article -> update([
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'price'=>$request->price,
+
+        ]);
+        return redirect()->route('article_index')->with('message', 'Articolo modificato');
     }
 
     /**
@@ -73,6 +79,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect()->route('article_index')->with('message','articolo eliminato');
     }
 }
