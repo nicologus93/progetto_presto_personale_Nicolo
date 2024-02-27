@@ -15,6 +15,8 @@
             <h5 class="card-title">{{$article->title}}</h5>
             <p class="card-text">{{$article->description}}</p>
             <p class="card-text">{{$article->price}}</p>
+            <p>Creato da: <h5>{{$article->user->name}}</h5></p>
+            <p>{{$article->created_at}}</p>
             <a href="{{route('article_show', $article)}}" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>

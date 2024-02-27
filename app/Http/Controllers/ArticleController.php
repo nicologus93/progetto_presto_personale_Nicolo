@@ -17,7 +17,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles= Article::all();
+        $articles= Article::all()->sortByDesc('created_at');
         return view('article.index', compact('articles'));
     }
 
@@ -34,11 +34,14 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
+        $user_id = auth()->id();
         // dd($request);
         $articles = Article::create([
+            'user_id'=>$user_id,
             'title'=>$request->title,
             'description'=>$request->description,
             'price'=>$request->price,
+            
         ]);
         return redirect()->route('welcome')->with('message','Articolo inserito correttamente');
         

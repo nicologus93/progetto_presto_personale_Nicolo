@@ -1,7 +1,7 @@
 body{
     position: relative;
     margin-top: 80px;
-    
+    font-family:"Roboto", sans-serif;
 
 }
 
@@ -9,20 +9,30 @@ main{
 min-height: 150vh;
 }
 .navbar{
-    background-color: white !important;
+    background-color: #00298e !important;
+    color: aliceblue;
     position: fixed;
     top: 0px;
-    z-index: 1;
+    z-index: 99;
     width: 100%;
     border-bottom: 2px solid #91f2cb;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
-
+}
+.nav-link{
+    color: aliceblue !important;
+}
+.dropdown-item{
+    color: black !important;
+}
+.img-header{
+    height: 500px;
+    width: 600px;
 }
 .header{
     min-height: 80vh;
     width: 100%;
     border-radius: 15px;
- background-color: #91f2cb;
+ background-color: #00d9ff;
  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .footer{
@@ -38,7 +48,13 @@ ul > li{
     list-style-type: none;
     font-size: small;
 }
+
 ul > .btn{
     max-height: 30px;
     width: 80%;
 }
+
+
+
+
+

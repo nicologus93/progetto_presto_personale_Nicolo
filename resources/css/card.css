@@ -1,14 +1,9 @@
 .cards-container{
     min-height: 70vh;
-    border-radius: 15px;
-    background-color: rgba(128, 128, 128, 0.126);
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
 }
-.card{
-    border-radius: 3px;
-    
-}
+
 .card-img-top{
     width: 100%;
     height: 200px;
@@ -24,5 +19,7 @@
     border-radius: 3px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
+
+
 
 
