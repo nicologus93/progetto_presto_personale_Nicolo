@@ -14,6 +14,7 @@
           <div class="card-body">
             <h5 class="card-title">{{$article->title}}</h5>
             <p class="card-text">{{$article->description}}</p>
+            <p>{{$article->category->category}}</p>
             <p class="card-text">{{$article->price}}</p>
             <p>Creato da: <h5>{{$article->user->name}}</h5></p>
             <p>{{$article->created_at}}</p>

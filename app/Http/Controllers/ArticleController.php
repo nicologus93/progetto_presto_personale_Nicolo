@@ -8,6 +8,9 @@ use App\Http\Requests\ArticleRequest;
 
 class ArticleController extends Controller
 {
+    
+
+
     public function __construct()
     {
         $this->middleware('auth')->except('welcome','index');
@@ -34,9 +37,14 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
+        // dd($request->all);
+        $request->validate([
+            'category_id'=>'required|exists:categories,id',
+        ]);
+        $category_id = $request ->input('category_id');
         $user_id = auth()->id();
-        // dd($request);
         $articles = Article::create([
+            'category_id'=>$category_id,
             'user_id'=>$user_id,
             'title'=>$request->title,
             'description'=>$request->description,

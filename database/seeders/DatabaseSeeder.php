@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +19,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $categories = ['Casa','Giardinaggio','Videogames','Giocattoli','Telefoni','Cucina','Auto','Vestiti'];
+
+        foreach ($categories as $category){
+        DB::table('categories')->insert([
+            'category'=>$category
+        ]);
+        }
     }
+
 }

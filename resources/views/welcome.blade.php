@@ -34,8 +34,9 @@
 
 <body>
     <!-- Swiper -->
-    <div class="container swiper-container">
-        <div class="row">
+    <section class="" > 
+    <div class="container  swiper-container">
+        <div class="row justify-content-end">
             <div class="col-6">
                 <h2 class="text-center my-5">Articoli recenti</h2>
                 <div class="swiper mySwiper  px-2 ">
@@ -53,8 +54,7 @@
                                     <p>In data: <span class="fs-6 fw-lighter">{{ $article->created_at }}</span></p>
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <a href="{{ route('article_show', $article) }}" class="btn btn-primary">Go
-                                        somewhere</a>
+                                    <a href="{{ route('article_show', $article) }}" role="button" class="button-15">Dettaglio</a>
                                 </div>                                
                             </div>                            
                         </div>
@@ -65,7 +65,7 @@
         </div>
         <div class="swiper-pagination"></div>
     </div>
-
+</section>
 
 {{-- Sezione chi siamo --}}
 <div class="container py-5 d-flex ">

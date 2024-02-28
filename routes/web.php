@@ -19,6 +19,7 @@ Route::get('/',[PublicController::class,'welcome'])->name('welcome');
 
 // Rotte articoli
 
+Route::get('/categoryShow/{category}',[PublicController::class,'categoryShow'])->name('categoryShow');
 Route::get('/article/index',[ArticleController::class,'index'])->name('article_index');
 Route::get('/article/create',[ArticleController::class,'create'])->name('article_create');
 Route::get('/article/show/{article}',[ArticleController::class,'show'])->name('article_show');
