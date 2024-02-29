@@ -6,7 +6,8 @@
                 <li>Chi siamo</li>
                 <li>Privacy</li>
                 <li>Sedi</li>
-                <li>Contatti</li>
+                <li class="d-flex align-items-center"><a href="{{route('contactUs')}}">Contattaci</a></li>
+
             </ul>
         </div>
         <div class="col-2">
@@ -14,8 +15,18 @@
             <ul class="p-0">
                 <li>Metodi di lavoro</li>
                 <li>Formazione</li>
-                <li class="btn btn-warning d-flex align-items-center">Lavora con noi</li>
             </ul>
         </div>
     </div>
-</div>
+    <div class="container-fluid icon-container d-flex align-items-start justify-content-end">
+        <div class="row justify-content-end">
+            <div class="col-4">
+                <i class="fa-brands fa-square-instagram display-6 py-1" style="color: #002057;"></i>    
+                <i class="fa-brands fa-facebook  display-6 py-1" style="color: #002057;"></i>
+                <i class="fa-brands fa-tiktok  display-6 py-1" style="color: #002057;"></i>
+                <i class="fa-brands fa-linkedin  display-6 py-1" style="color: #002057;"></i>
+            </div>
+        </div>
+    </div>
+</div>  
+            

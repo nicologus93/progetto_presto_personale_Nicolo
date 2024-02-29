@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PublicController::class,'welcome'])->name('welcome');
 
+// rotte Email
+
+Route::get('contactus',[PublicController::class,'contactUs'])->name('contactUs');
+Route::post('contactus/submit',[PublicController::class,'contactUsSubmit'])->name('contactUsSubmit');
+
 // Rotte articoli
 
 Route::get('/categoryShow/{category}',[PublicController::class,'categoryShow'])->name('categoryShow');
