@@ -32,3 +32,6 @@ Route::get('/article/edit/{article}',[ArticleController::class,'edit'])->name('a
 Route::POST('/article/store',[ArticleController::class,'store'])->name('article_store');
 Route::PUT('/article/update/{article}',[ArticleController::class,'update'])->name('article_update');
 Route::delete('/article/destroy/{article}',[ArticleController::class,'destroy'])->name('article_destroy');
+
+// Rotta ricerca articoli
+Route::get('ricerca/annuncio',[PublicController::class,'searchArticles'])->name('search_articles');

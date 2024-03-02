@@ -38,6 +38,13 @@ class PublicController extends Controller
 
        return redirect(route('welcome'))->with('message', 'Richiesta inviata correttamente');
     }
+
+    // Funzione ricerca articoli
+    public function searchArticles(Request $request)
+    {
+        $articles = Article::search($request->searched)->get();
+        return view('article.index', compact('articles'));
+    }
 }
 
 

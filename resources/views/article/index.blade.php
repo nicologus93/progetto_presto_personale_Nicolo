@@ -7,7 +7,7 @@
   <h1>tutti gli articoli</h1>
   <div class="container">
     <div class="row">
-      @foreach ($articles as $article)
+      @forelse ($articles as $article)
       <div class="col-4 my-3">
         <div class="card" style="width: 18rem;">
           <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
@@ -18,8 +18,10 @@
             <a href="{{route('article_show', $article)}}" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
-      </div>  
-      @endforeach
+      </div> 
+      @empty <p>Non ci sono annunci per questa categoria</p> 
+      
+      @endforelse
     </div>
   </div>
 </x-layout>
