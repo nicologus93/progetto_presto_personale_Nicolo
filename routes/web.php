@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\RevisorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,17 @@ Route::delete('/article/destroy/{article}',[ArticleController::class,'destroy'])
 
 // Rotta ricerca articoli
 Route::get('ricerca/annuncio',[PublicController::class,'searchArticles'])->name('search_articles');
+
+// Rotte Revisori
+// Rotta form richiesta Revisore
+Route::get('/revisor/request/form',[RevisorController::class,'revisorRequest'])->middleware('auth')->name('revisorRequest');
+// Diventa revisore
+Route::post('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->middleware('auth')->name('become_revisor');
+// Rendi l'utente revisore
+Route::get('/rendi/revisore/{user}',[RevisorController::class,'makeRevisor'])->middleware('auth')->name('make_revisor');
+// Home revisore
+Route::get('/revisor/home',[RevisorController::class,'index'])->middleware('isRevisor')->name('revisor_index');
+// Accetta articolo
+Route::patch('/revisor/accept/{article}',[RevisorController::class,'acceptArticle'])->middleware('isRevisor')->name('revisor_accept_article');
+// Rifiuta articolo
+Route::patch('/revisor/reject/{article}',[RevisorController::class,'rejectArticle'])->middleware('isRevisor')->name('revisor_reject_article');

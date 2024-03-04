@@ -34,6 +34,21 @@
       <input name="searched" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
+
+    {{-- ZONA REVISORE --}}
+    @auth
+    @if(Auth::user()->is_revisor)
+    <li class="nav-item">
+      <a href="{{route('revisor_index')}}" class="nav-link btn btn-success btn-sn position-relative"aria-current="page">
+        Zona Revisore
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{App\Models\Article::toBeRevisionedCount()}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </a>
+    </li>
+    @endif
+    @endauth
   </ul>
   <ul>
     <li class="nav-item dropdown me-5">

@@ -12,9 +12,12 @@
         </div>
         <div class="col-2">
             <p class="fw-bold">Cerchi lavoro?</p>
-            <ul class="p-0">
+            <ul class="p-0 text-center">
                 <li>Metodi di lavoro</li>
                 <li>Formazione</li>
+                @if(!Auth::user()->is_revisor)
+                <a href="{{route('revisorRequest')}}" class="btn btn-warning text-center my-2">Lavora con noi!</a>
+                @endif
             </ul>
         </div>
     </div>

@@ -35,6 +35,8 @@ class Article extends Model
         return $array;
     }
 
+    
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -42,5 +44,21 @@ class Article extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    // metodi revisore
+
+    public function setAccepted($value)
+    {
+        $this->is_accepted = $value;
+        $this->save();
+        return true;
+    }
+
+    // Counter articoli da revisionare
+
+    public static function toBeRevisionedCount()
+    {
+        return Article::where('is_accepted',null)->count();
     }
 }

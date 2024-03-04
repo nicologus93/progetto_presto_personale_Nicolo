@@ -4,6 +4,12 @@
         {{ session('message') }}
     </div>
 @endif
+@if (session('access.denied'))
+    <div class="alert alert-danger">
+        {{ session('access.denied') }}
+    </div>
+@endif
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
