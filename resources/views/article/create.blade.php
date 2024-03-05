@@ -15,7 +15,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6  border rounded shadow  py-4 px-5">
-                <form method="POST" action={{route('article_store')}}>
+                <livewire:create-article />
+                {{-- <form method="POST" action={{route('article_store')}}>
                     @csrf
                     <div class="mb-3">
                         <label for="inputTitle" class="form-label">Titolo</label>
@@ -43,7 +44,7 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                     
-                  </form>
+                  </form> --}}
             </div>
         </div>
     </div>

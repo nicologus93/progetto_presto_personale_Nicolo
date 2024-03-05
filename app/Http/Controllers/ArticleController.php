@@ -38,20 +38,20 @@ class ArticleController extends Controller
     public function store(ArticleRequest $request)
     {
         // dd($request->all);
-        $request->validate([
-            'category_id'=>'required|exists:categories,id',
-        ]);
-        $category_id = $request ->input('category_id');
-        $user_id = auth()->id();
-        $articles = Article::create([
-            'category_id'=>$category_id,
-            'user_id'=>$user_id,
-            'title'=>$request->title,
-            'description'=>$request->description,
-            'price'=>$request->price,
+        // $request->validate([
+        //     'category_id'=>'required|exists:categories,id',
+        // ]);
+        // $category_id = $request ->input('category_id');
+        // $user_id = auth()->id();
+        // $articles = Article::create([
+        //     'category_id'=>$category_id,
+        //     'user_id'=>$user_id,
+        //     'title'=>$request->title,
+        //     'description'=>$request->description,
+        //     'price'=>$request->price,
             
-        ]);
-        return redirect()->route('welcome')->with('message','Articolo inserito correttamente');
+        //]);
+        // return redirect()->route('welcome')->with('message','Articolo inserito correttamente');
         
     }
 
