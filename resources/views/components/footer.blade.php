@@ -15,7 +15,9 @@
             <ul class="p-0 text-center">
                 <li>Metodi di lavoro</li>
                 <li>Formazione</li>
+                @guest
                 <li>Iscriviti se vuoi inviarci una richiesta di lavoro</li>
+                @endguest
                 @auth
                 @if(!Auth::user()->is_revisor)
                 <a href="{{route('revisorRequest')}}" class="btn btn-warning text-center my-2">Lavora con noi!</a>

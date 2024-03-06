@@ -10,7 +10,7 @@
       @forelse ($articles as $article)
       <div class="col-4 my-3">
         <div class="card" style="width: 18rem;">
-          <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
+          <img src="{{$article->images()->get()->isempty() ? Storage::url($article->images()->first()->path) : 'https://picsum.photos/200/300'}}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{$article->title}}</h5>
             <p>{{$article->category->category}}</p>

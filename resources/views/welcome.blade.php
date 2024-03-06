@@ -57,7 +57,7 @@
             @foreach($articles as $article)
             <div class="col-2">
                 <div class="card text-bg-dark">
-                    <img src="https://picsum.photos/50/50" class="card-img" alt="...">
+                    <img src="{{$article->images()->get()->isempty() ? Storage::url($article->images()->first()->path) : 'https://picsum.photos/200/300'}}" class="card-img" alt="...">
                     <div class="card-img-overlay">
                       <h5 class="card-title">{{$article->title}}</h5>
                       <p class="card-text">{{$article->description}}</p>

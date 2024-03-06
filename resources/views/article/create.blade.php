@@ -4,7 +4,8 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         {{-- fine validazioni --}}
-    
+
+       
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
@@ -15,6 +16,17 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6  border rounded shadow  py-4 px-5">
+                <div class="container">
+                    <div class="row">
+                        
+                        @if (session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                        @endif
+                
+                    </div>
+                </div>
                 <livewire:create-article />
                 {{-- <form method="POST" action={{route('article_store')}}>
                     @csrf

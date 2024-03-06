@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('images')->nullable();
-            $table->foreign('images')->references('id')->on('articles')->ondelete('cascade');
+            $table->unsignedBigInteger('article_id')->nullable();
+            $table->foreign('article_id')->references('id')->on('articles')->ondelete('cascade');
             $table->string('path')->nullable();
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('article_id');
     }
 };
