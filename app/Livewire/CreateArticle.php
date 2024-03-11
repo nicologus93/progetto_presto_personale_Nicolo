@@ -4,8 +4,10 @@ namespace App\Livewire;
 
 use App\Models\Article;
 use Livewire\Component;
+use App\Jobs\ResizeImage;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class CreateArticle extends Component
 {
@@ -75,7 +77,13 @@ public function store()
    if(count($this->images)){
     foreach ($this->images as $image) {
           //dd($this->article);
-         $article->images()->create(['path' => $image->store('img', 'public')]);
+        //  $article->images()->create(['path' => $image->store('img', 'public')]);
+         $newFileName = "articles/{$article->id}";
+         $newImage = $article->images()->create(['path' => $image->store($newFileName,'public')]);
+        
+         dispatch(new ResizeImage($newImage->path, 400, 300));
+
+         File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
    }
    

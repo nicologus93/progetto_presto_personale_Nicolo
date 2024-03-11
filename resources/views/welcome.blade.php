@@ -20,7 +20,7 @@
     </div>
 @endif
 {{-- inizio header --}}
-    <div class="container header d-flex align-items-center justify-content-end flex-column">
+    <div class="container-fluid header d-flex align-items-center justify-content-end flex-column">
         <div class="row mx-3 justify-content-end align-items-center ">
             <div class="col-6 d-flex justify-content-center flex-column">
                 <h1 class="display-2 fw-bold">PrEsTo.it</h1>
@@ -57,7 +57,7 @@
             @foreach($articles as $article)
             <div class="col-2">
                 <div class="card text-bg-dark">
-                    <img src="{{$article->images()->get()->isempty() ? Storage::url($article->images()->first()->path) : 'https://picsum.photos/200/300'}}" class="card-img" alt="...">
+                    <img src="{{!$article->images()->get()->isempty() ? $article->images()->first()->getUrl(400, 300) : 'https://picsum.photos/200/300'}}" class="card-img" alt="...">
                     <div class="card-img-overlay">
                       <h5 class="card-title">{{$article->title}}</h5>
                       <p class="card-text">{{$article->description}}</p>
