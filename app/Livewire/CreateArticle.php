@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Jobs\RemoveFaces;
 use App\Models\Article;
 use Livewire\Component;
 use App\Jobs\ResizeImage;
@@ -80,8 +81,12 @@ public function store()
         //  $article->images()->create(['path' => $image->store('img', 'public')]);
          $newFileName = "articles/{$article->id}";
          $newImage = $article->images()->create(['path' => $image->store($newFileName,'public')]);
-        
-         dispatch(new ResizeImage($newImage->path, 400, 300));
+         $newImagePath = $image->store($newFileName, 'public');
+
+         RemoveFaces::withChain([
+             new ResizeImage($newImage->path, 400, 300),
+
+         ])->dispatch($newImagePath);
 
          File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
